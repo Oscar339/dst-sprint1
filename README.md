@@ -45,8 +45,17 @@ Every model is scored on the same split, or the comparison means nothing.
 All report content is in `report/`, numbered `NN-Name.ext` in reading order.
 _To be filled in as the report is written._
 
-1. `01-Data.ipynb` — getting and cleaning the data, and the shared split.
-   **Run this first**: every later notebook loads its output.
+1. `01-Data.ipynb` — downloads and cleans the Taiwan data, using the same
+   process as Sprint 0 (cited there), and will make the shared split.
+   **Run this first**: it makes `data/processed/taiwan-clean.csv`, which every
+   later notebook loads:
+
+   ```python
+   taiwan = pd.read_csv(ROOT / "data" / "processed" / "taiwan-clean.csv", index_col="ID")
+   ```
+
+   `PAY_0` is renamed `PAY_1` in the clean file, and the `PAY_*` codes -2, -1
+   and 0 are categories, not months of delay.
 
 ### Requirements
 
@@ -76,7 +85,19 @@ Each member's working, including dead ends, is in their own folder:
 * Yeh, I-C. (2009). *Default of Credit Card Clients* [dataset]. UCI Machine
   Learning Repository. https://doi.org/10.24432/C55S3H
 
+### Previous work
+
+* Butler, O., Robinson, A. & Mulryan, L. (2026). *Data Science Toolbox Sprint 0:
+  Credit Default Risk* [code and report]. GitHub, commit 577d547.
+  https://github.com/Oscar339/dst-sprint0 — the data cleaning in
+  `report/01-Data.ipynb` is carried over from its `01-Introduction.ipynb`.
+
 ### Papers
+
+* Yeh, I-C. & Lien, C-H. (2009). The comparisons of data mining techniques for
+  the predictive accuracy of probability of default of credit card clients.
+  *Expert Systems with Applications* 36(2), 2473–2480.
+  https://doi.org/10.1016/j.eswa.2007.12.020
 
 _Add as we go. The unit's example project scored lowest on literature and
 referencing, so cite widely._
