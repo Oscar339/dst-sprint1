@@ -1,7 +1,7 @@
-# Hazard model families
+# Hazard models
 
-For each family: what it is, pros, cons, fit to our data, and tools.
-"Fit to our data" bears the 7-month limit in mind (see `README.md`).
+Firstly, we want to consider all types of hazard model that could be useful for our project.
+This is our first part of research and covers a broad spectrum, I have worked with and built hazard models before but with different data and different goals in mind so further research is needed.
 
 Summary first:
 
