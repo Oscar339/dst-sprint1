@@ -25,11 +25,6 @@ A table of different types of hazard models that will be considered for our proj
 
 ## 1. Discrete-time hazard, logit link (pooled logit)
 
-$\operatorname{logit} h(t \mid x) = \alpha_t + \beta^\top x_{t-1}$, fitted by
-ordinary logistic regression on a person-month table (Allison, 1982; Singer &
-Willett, 1993; Tutz & Schmid, 2016). Shumway (2001) used this for bankruptcy;
-Bellotti & Crook (2013) for credit cards.
-
 **Pros**
 - Our data is monthly, so time is genuinely discrete. No ties problem.
 - Standard GLM software gives valid estimates (the likelihood factorises over person-months).
