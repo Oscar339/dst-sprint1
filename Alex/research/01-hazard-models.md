@@ -40,7 +40,7 @@ Bellotti & Crook (2013) for credit cards.
 
 **Cons**
 - Coefficients are log odds ratios of the monthly hazard, not hazard ratios.
-- Rows from the same customer are not independent. Standard errors are too small unless clustered by customer - this needs to be looked into further.
+- Rows from the same customer are not independent. Standard errors are too small unless clustered by customer - this needs to be looked into further for the data we're looking at.
 - With 4–7 months, a lot of the "time" signal is just the month dummies, as seen in sprint 0 (Sprint 0: person-month AUC 0.71 mostly reflects which month).
 
 **Tools:** `statsmodels` GLM (Binomial), `sklearn` `LogisticRegression`.
