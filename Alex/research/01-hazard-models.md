@@ -26,16 +26,17 @@ A table of different types of hazard models that will be considered for our proj
 ## 1. Discrete-time hazard, logit link (pooled logit)
 
 **Pros**
-- Our data is monthly, so time is genuinely discrete. No ties problem.
-- Standard GLM software gives valid estimates (the likelihood factorises over person-months).
-- Time-varying covariates are easy: one row per month.
-- Directly comparable with Oscar's GLM. The difference between the two is the *data structure* (person-months vs one row per customer), not the method. Good for the report.
-- Shumway (2001) argues single-period models give biased, inconsistent probabilities and this does not. That is testable by simulation (see `05-other-ideas.md`).
+- Our data is monthly, so time is discrete.
+- Standard general linear model (GLM) with a logit link is an industry standard for credit scoring - a discrete time hazard model with logit link build off of this.
+- Time-varying covariates are easy, one row per month.
+- Directly comparable with Oscar's GLM. The difference between the two is the data structure (person-months vs one row per customer), not the method. Good for the report.
+- Shumway (2001) argues single-period models give biased, inconsistent probabilities and this does not. Would be useful to compare this to Oscar's GLM and see which model performs better.
+- We can work out expectation time of default as well as probability of default.
 
 **Cons**
 - Coefficients are log odds ratios of the monthly hazard, not hazard ratios.
-- Rows from the same customer are not independent. Standard errors are too small unless clustered by customer (point estimates are fine).
-- With 4–7 months, a lot of the "time" signal is just the month dummies (Sprint 0: person-month AUC 0.71 mostly reflects *which month*).
+- Rows from the same customer are not independent. Standard errors are too small unless clustered by customer - this needs to be looked into further.
+- With 4–7 months, a lot of the "time" signal is just the month dummies, as seen in sprint 0 (Sprint 0: person-month AUC 0.71 mostly reflects which month).
 
 **Tools:** `statsmodels` GLM (Binomial), `sklearn` `LogisticRegression`.
 
