@@ -46,12 +46,15 @@ All report content is in `report/`, numbered `NN-Name.ext` in reading order.
 _To be filled in as the report is written._
 
 1. `01-Data.ipynb` — downloads and cleans the Taiwan data, using the same
-   process as Sprint 0 (cited there), and will make the shared split.
-   **Run this first**: it makes `data/processed/taiwan-clean.csv`, which every
-   later notebook loads:
+   process as Sprint 0 (cited there), and makes the shared split: 60% train,
+   20% validation, 20% test, stratified by default, seed 2026.
+   **Run this first**: it makes `data/processed/taiwan-train.csv`,
+   `taiwan-validation.csv` and `taiwan-test.csv`, which every model loads:
 
    ```python
-   taiwan = pd.read_csv(ROOT / "data" / "processed" / "taiwan-clean.csv", index_col="ID")
+   train      = pd.read_csv(ROOT / "data" / "processed" / "taiwan-train.csv", index_col="ID")
+   validation = pd.read_csv(ROOT / "data" / "processed" / "taiwan-validation.csv", index_col="ID")
+   test       = pd.read_csv(ROOT / "data" / "processed" / "taiwan-test.csv", index_col="ID")
    ```
 
    `PAY_0` is renamed `PAY_1` in the clean file, and the `PAY_*` codes -2, -1
