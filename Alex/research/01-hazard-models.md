@@ -5,21 +5,21 @@ This is our first part of research and covers a broad spectrum, I have worked wi
 
 A table of different types of hazard models that will be considered for our project:
 
-| Model | Time | Fit to our data | Effort | Priority |
-|---|---|---|---|---|
-| Discrete-time logit (pooled) | Discrete | Very good | Low | **Core** |
-| Discrete-time cloglog | Discrete | Very good | Low | **Core** |
-| Penalised discrete-time | Discrete | Very good | Low | **Core** |
-| Discrete-time with frailty (random effects) | Discrete | Good | Medium | Strong option |
-| Mixture cure | Either | Good (78% never default) | Medium–high | Strong option, most innovative |
-| Cox PH (static) | Continuous | Poor (heavy ties) | Low | Comparison only |
-| Cox with time-varying covariates | Continuous | Fair | Medium | Comparison |
-| Parametric AFT (Weibull etc.) | Continuous | Poor (too few times) | Low | Probably skip |
-| Piecewise exponential (Poisson GLM) | Either | Good | Low | Nice link to the maths |
-| Recurrent events (AG, PWP) | Continuous | Fair | Medium | Optional |
-| Varying-coefficient hazard | Discrete | Fair | Medium | Optional (one interaction test) |
-| Random survival forest | Continuous | Fair | Medium | Overlaps Louis |
-| Multi-state / intensity models | Either | Good | Medium | **Louis's area** |
+| Model | Time | Fit to our data | Effort |
+|---|---|---|---|
+| Discrete-time logit (pooled) | Discrete | Very good | Low |
+| Discrete-time cloglog | Discrete | Very good | Low | 
+| Penalised discrete-time | Discrete | Very good | Low | 
+| Discrete-time with frailty (random effects) | Discrete | Good | Medium |
+| Mixture cure | Either | Good | Medium–high |
+| Cox PH (static) | Continuous | Poor | Low |
+| Cox with time-varying covariates | Continuous | Fair | Medium |
+| Parametric AFT (Weibull etc.) | Continuous | Poor | Low |
+| Piecewise exponential (Poisson GLM) | Either | Good | Low |
+| Recurrent events (AG, PWP) | Continuous | Fair | Medium |
+| Varying-coefficient hazard | Discrete | Fair | Medium |
+| Random survival forest | Continuous | Fair | Medium |
+| Multi-state / intensity models | Either | Good | Medium |
 
 ---
 
