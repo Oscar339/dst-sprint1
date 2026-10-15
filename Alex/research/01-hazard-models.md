@@ -3,7 +3,7 @@
 Firstly, we want to consider all types of hazard model that could be useful for our project.
 This is our first part of research and covers a broad spectrum, I have worked with and built hazard models before but with different data and different goals in mind so further research is needed.
 
-Summary first:
+A table of different types of hazard models that will be considered for our project:
 
 | Model | Time | Fit to our data | Effort | Priority |
 |---|---|---|---|---|
