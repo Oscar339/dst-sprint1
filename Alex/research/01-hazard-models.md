@@ -19,7 +19,6 @@ A table of different types of hazard models that will be considered for our proj
 | Recurrent events (AG, PWP) | Continuous | Fair | Medium |
 | Varying-coefficient hazard | Discrete | Fair | Medium |
 | Random survival forest | Continuous | Fair | Medium |
-| Multi-state / intensity models | Either | Good | Medium |
 
 ---
 
@@ -66,20 +65,19 @@ Schmid, 2016, ch. 7).
 - Matches Oscar's C / L1-vs-L2 tuning, so the comparison is like-for-like.
 
 **Cons**
-- Penalty shrinks probabilities and can hurt calibration.
-- Tuning has to be grouped by customer.
+- Including a penalty shrinks probabilities and can have a negative effect on calibration of the model.
 
 ## 4. Frailty / random-effects discrete-time hazard
 
 Adds a customer-level random intercept:
-$\operatorname{logit} h_{it} = \alpha_t + \beta^\top x_{it} + u_i$,
+$\mathrm{logit}\, h_{it} = \alpha_t + \beta^\top x_{it} + u_i$,
 $u_i \sim N(0, \sigma^2)$. Unobserved differences between customers ("some
 people are just riskier"). Discrete-time version: Tutz & Schmid (2016, ch. 9).
 Latent-class version: Muthén & Masyn (2005).
 
 **Pros**
 - Fixes the non-independence of rows from the same customer (con of model 1).
-- Only identifiable with **recurrent** events (customers who fall behind, catch up, fall behind again), which our data has. Ties in well.
+- Only identifiable with recurrent events (customers who fall behind, catch up, fall behind again), which our data has. Ties in well.
 - $\sigma^2$ is interpretable: how much risk the covariates miss.
 - Connects to clustering. A discrete latent class instead of a normal $u_i$ is a mixture model (`03-clustering.md`).
 
@@ -108,8 +106,8 @@ datasets, and it was among the better methods.
 - Writing the EM algorithm ourselves counts as "additional implementation".
 
 **Cons**
-- Identifiability needs long follow-up. With 7 months, "cured" and "not yet defaulted" are hard to tell apart. **This is the main risk and must be stated.**
-- Python support is thin. `lifelines` has `MixtureCureFitter` but, as far as I can tell, for univariate (no-covariate) models only (**to check**). Covariate version: R `smcure` (Cai et al., 2012), or our own EM.
+- Identifiability needs long follow-up. With 7 months, "cured" and "not yet defaulted" are hard to tell apart. This is the main risk and must be stated.
+- Python support is thin. `lifelines` has `MixtureCureFitter` but, as far as I can tell, for univariate (no-covariate) models only (to check). Covariate version: R `smcure` (Cai et al., 2012), or our own EM.
 - More parameters, so it can overfit.
 
 ## 6. Cox proportional hazards (static covariates)
@@ -127,8 +125,6 @@ The credit-scoring standard (Stepanova & Thomas, 2002; Bellotti & Crook, 2009).
 - Static covariates throw away the monthly data.
 - Gives a survival curve, not P(October default) directly. Needs conversion.
 
-**Tools:** `lifelines` `CoxPHFitter`, `scikit-survival` `CoxPHSurvivalAnalysis`.
-
 ## 7. Cox with time-varying covariates (counting-process form)
 
 Each customer is split into (start, stop] intervals with that month's
@@ -140,7 +136,7 @@ covariates. `lifelines` `CoxTimeVaryingFitter`.
 
 **Cons**
 - Same ties problem as 6.
-- **Prediction is hard**: future covariates are unknown. `lifelines` does not predict from the time-varying fitter. You must hold covariates fixed or use landmarking (`05-other-ideas.md`).
+- **Prediction is hard**: future covariates are unknown. `lifelines` does not predict from the time-varying fitter. We have to have fixed covariates or use landmarking (`05-other-ideas.md`).
 
 ## 8. Parametric / accelerated failure time (Weibull, log-logistic, log-normal)
 
@@ -208,17 +204,5 @@ A random forest for censored data (Ishwaran et al., 2008).
 - Static covariates only in standard implementations.
 - Overlaps Louis's trees. Either he does it, or leave it out.
 - Slow on 18,000 customers (manageable).
-
-## 13. Multi-state / intensity models (note only: Louis's area)
-
-States: up to date → 1 month behind → 2 behind → default. Hazards for each
-move, with covariates. Leow & Crook (2014) did this for credit cards: a
-non-homogeneous Markov chain estimated with multiplicative hazard models.
-Malik & Thomas (2012) built a Markov chain on monthly behavioural scores and
-found a **second-order** chain was needed.
-
-Relevant to me because it *is* a hazard model, so it is the natural bridge
-between my section and Louis's. Cite both in the "how our models relate"
-paragraph.
 
 ---
