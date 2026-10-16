@@ -90,7 +90,7 @@ Latent-class version: Muthén & Masyn (2005).
 
 ## 5. Mixture cure model
 
-Assumes a fraction of customers will **never** default ("cured"). The model
+Assumes a fraction of customers will never default ("cured"). The model
 has two parts:
 - an *incidence* part (logistic): is this customer susceptible?
 - a *latency* part (hazard): if susceptible, when do they default?
