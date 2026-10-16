@@ -222,10 +222,3 @@ between my section and Louis's. Cite both in the "how our models relate"
 paragraph.
 
 ---
-
-## Recommendation
-
-1. **Core:** pooled logit, cloglog and penalised discrete-time hazard on the same person-month table (models 1–3), with the piecewise-exponential link as maths.
-2. **One "insight" model:** mixture cure (most innovative) or frailty (most defensible).
-3. **One continuous-time comparison:** Cox with time-varying covariates, to show what goes wrong with ties and prediction.
-4. **Leave out:** AFT (one sentence why). RSF and multi-state go to Louis.
