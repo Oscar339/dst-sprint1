@@ -112,14 +112,13 @@ $h(t \mid x) = h_0(t) \exp(\beta^\top x)$, by partial likelihood (Cox, 1972).
 The credit-scoring standard (Stepanova & Thomas, 2002; Bellotti & Crook, 2009).
 
 **Pros**
-- Most cited, so a useful benchmark against the literature.
+- Most cited, so easiest to find resources for.
 - No assumption on the shape of the baseline hazard.
-- Proportional hazards can be checked with Schoenfeld residuals (Grambsch & Therneau, 1994).
+- Proportional hazards can be checked with residuals.
 
 **Cons**
-- Continuous-time model on monthly data, so there are massive ties (thousands of events in the same month). Efron's approximation helps, but the discrete model is more honest.
 - Static covariates throw away the monthly data.
-- Gives a survival curve, not P(October default) directly. Needs conversion.
+- Gives a survival curve, not P(October default) directly, would need to give the model a horizon to work to.
 
 ## 7. Cox with time-varying covariates (counting-process form)
 
@@ -132,7 +131,7 @@ covariates. `lifelines` `CoxTimeVaryingFitter`.
 
 **Cons**
 - Same ties problem as 6.
-- **Prediction is hard**: future covariates are unknown. `lifelines` does not predict from the time-varying fitter. We have to have fixed covariates or use landmarking (`05-other-ideas.md`).
+- Future covariates are unknown. `lifelines` does not predict from the time-varying fitter. We have to have fixed covariates or use landmarking (`05-other-ideas.md`).
 
 ## 8. Parametric / accelerated failure time (Weibull, log-logistic, log-normal)
 
@@ -141,12 +140,10 @@ time. Benchmarked in Dirick et al. (2017).
 
 **Pros**
 - Smooth hazard, extrapolates beyond the data.
-- Simple to fit in `lifelines` (`WeibullAFTFitter` etc.).
 
 **Cons**
-- With only 4–7 distinct times, there is almost nothing to identify a distribution's shape. The assumption is untestable here.
+- With only 4–7 distinct times, there is not much data to identify a distribution's shape. The assumption is untestable here.
 - Dirick et al. (2017) found AFT models did not beat Cox-type models.
-- Probably one sentence in the report: "considered, rejected because...".
 
 ## 9. Piecewise exponential model (Poisson GLM)
 
@@ -155,8 +152,7 @@ table with log(exposure) as an offset (Holford, 1980; Laird & Olivier, 1981).
 Equivalent to Cox when the pieces are fine enough.
 
 **Pros**
-- Shows the three models (logit, cloglog, Poisson) are the same idea on the same table. A strong "mathematics of the method" section for the reflection.
-- Easy in `statsmodels`.
+- Shows the three models (logit, cloglog, Poisson) are the same idea on the same table.
 
 **Cons**
 - Mostly duplicates model 2 numerically for our data.
@@ -198,7 +194,7 @@ A random forest for censored data (Ishwaran et al., 2008).
 
 **Cons**
 - Static covariates only in standard implementations.
-- Overlaps Louis's trees. Either he does it, or leave it out.
+- Overlaps Louis's trees.
 - Slow on 18,000 customers (manageable).
 
 ---
