@@ -72,8 +72,7 @@ Schmid, 2016, ch. 7).
 Adds a customer-level random intercept:
 $\mathrm{logit}\, h_{it} = \alpha_t + \beta^\top x_{it} + u_i$,
 $u_i \sim N(0, \sigma^2)$. Unobserved differences between customers ("some
-people are just riskier"). Discrete-time version: Tutz & Schmid (2016, ch. 9).
-Latent-class version: Muthén & Masyn (2005).
+people are just riskier") - hidden variables. Discrete-time frailty model: Tutz & Schmid (2016, Chapter 9) - models the hazard over discrete time intervals, accounting for unobserved differences in individuals’ underlying risk through a frailty term. Latent-class frailty model: Muthén & Masyn (2005) - accounts for unobserved heterogeneity by assigning individuals to latent subgroups, which may have different hazard patterns and, depending on the specification, additional within-class frailty.
 
 **Pros**
 - Fixes the non-independence of rows from the same customer (con of model 1).
