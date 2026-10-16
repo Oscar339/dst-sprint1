@@ -43,8 +43,6 @@ Bellotti & Crook (2013) for credit cards.
 - Rows from the same customer are not independent. Standard errors are too small unless clustered by customer - this needs to be looked into further for the data we're looking at.
 - With 4–7 months, a lot of the "time" signal is just the month dummies, as seen in sprint 0 (Sprint 0: person-month AUC 0.71 mostly reflects which month).
 
-**Tools:** `statsmodels` GLM (Binomial), `sklearn` `LogisticRegression`.
-
 ## 2. Discrete-time hazard, complementary log-log link
 
 $\log(-\log(1 - h(t \mid x))) = \alpha_t + \beta^\top x$. This is the exact
@@ -53,11 +51,10 @@ discrete (grouped-time) version of the Cox model (Prentice & Gloeckler, 1978).
 **Pros**
 - Often more consistent than logit link as complementary log-log link reverses the relationship between a continuous-time hazard rate and the probability of an event occurring within a discrete interval
 - Correct if defaults really happen in continuous time but we only see them monthly (true for us).
-- Costs one line of code on top of model 1. Comparing the links is a ready-made "mathematical details of choices" section.
+- Costs one line of code on top of model 1. Comparing the links should be easy.
 
 **Cons**
 - Asymmetric link. When monthly hazards are small (ours are 3–11%), it gives almost the same answers as logit, so the comparison may be dull.
-- Not in `sklearn`. Needs `statsmodels`.
 
 ## 3. Penalised discrete-time hazard (L1 / L2)
 
