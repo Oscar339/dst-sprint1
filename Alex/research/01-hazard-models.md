@@ -58,7 +58,7 @@ discrete (grouped-time) version of the Cox model (Prentice & Gloeckler, 1978).
 
 ## 3. Penalised discrete-time hazard (L1 / L2)
 
-The same model with a lasso or ridge penalty, tuned on validation (Tutz &
+The same discrete-time hazard but with a penalty, tuned on validation (Tutz &
 Schmid, 2016, ch. 7).
 
 **Pros**
@@ -67,7 +67,7 @@ Schmid, 2016, ch. 7).
 
 **Cons**
 - Penalty shrinks probabilities and can hurt calibration.
-- Tuning has to be grouped by customer (no customer in both folds).
+- Tuning has to be grouped by customer.
 
 ## 4. Frailty / random-effects discrete-time hazard
 
