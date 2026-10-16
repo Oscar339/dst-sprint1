@@ -51,7 +51,7 @@ $\log(-\log(1 - h(t \mid x))) = \alpha_t + \beta^\top x$. This is the exact
 discrete (grouped-time) version of the Cox model (Prentice & Gloeckler, 1978).
 
 **Pros**
-- $\exp(\beta)$ are hazard ratios, comparable with Cox and the literature.
+- Often more consistent than logit link as complementary log-log link reverses the relationship between a continuous-time hazard rate and the probability of an event occurring within a discrete interval
 - Correct if defaults really happen in continuous time but we only see them monthly (true for us).
 - Costs one line of code on top of model 1. Comparing the links is a ready-made "mathematical details of choices" section.
 
