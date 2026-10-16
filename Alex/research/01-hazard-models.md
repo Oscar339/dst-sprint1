@@ -81,33 +81,30 @@ people are just riskier") - hidden variables. Discrete-time frailty model: Tutz 
 - Connects to clustering. A discrete latent class instead of a normal $u_i$ is a mixture model (`03-clustering.md`).
 
 **Cons**
-- Predicting for a *new* customer has to integrate over $u_i$ (or use the customer's own past months). Needs care so the October prediction is fair.
-- Slower to fit. `statsmodels` `BinomialBayesMixedGLM` is approximate (variational Bayes). R `lme4::glmer` is the standard.
+- Predicting for a new customer has to integrate over $u_i$ (or use the customer's own past months).
 - With only up to 7 rows per customer, $\sigma^2$ may be poorly estimated.
 
 ## 5. Mixture cure model
 
 Assumes a fraction of customers will never default ("cured"). The model
 has two parts:
-- an *incidence* part (logistic): is this customer susceptible?
-- a *latency* part (hazard): if susceptible, when do they default?
+- an incidence part (logistic): is this customer susceptible?
+- a latency part (hazard): if susceptible, when do they default?
 
 Credit application: Tong, Mues & Thomas (2012), on UK personal loans. They
 found discrimination similar to Cox and logistic regression, but survival
-models were better calibrated at intermediate horizons. The cure model also
+models were better calibrated for intermediate horizons. The cure model also
 separates "if" from "when". Dirick et al. (2017) benchmarked it on 10 credit
 datasets, and it was among the better methods.
 
 **Pros**
-- Matches our data: 78% do not default in October, and most never fall behind at all.
-- Separates *who* is at risk from *when*. That is a real insight and directly maps onto the "if and when" literature (Banasik et al., 1999).
-- Innovation marks: not covered in the course.
-- Writing the EM algorithm ourselves counts as "additional implementation".
+- A good fit for our data as 78% do not default in October, and most never fall behind at all.
+- Separates who is at risk from when.
+- Innovation marks: not covered in the course
 
 **Cons**
-- Identifiability needs long follow-up. With 7 months, "cured" and "not yet defaulted" are hard to tell apart. This is the main risk and must be stated.
-- Python support is thin. `lifelines` has `MixtureCureFitter` but, as far as I can tell, for univariate (no-covariate) models only (to check). Covariate version: R `smcure` (Cai et al., 2012), or our own EM.
-- More parameters, so it can overfit.
+- Identifiability needs long follow-up. With 7 months, "cured" and "not yet defaulted" are hard to tell apart. This is the main risk but is common throughout all models
+- More parameters, so it could overfit - testing and fitting must be done carefully.
 
 ## 6. Cox proportional hazards (static covariates)
 
