@@ -76,7 +76,7 @@ people are just riskier") - hidden variables. Discrete-time frailty model: Tutz 
 
 **Pros**
 - Fixes the non-independence of rows from the same customer (con of model 1).
-- Only identifiable with recurrent events (customers who fall behind, catch up, fall behind again), which our data has. Ties in well.
+- Identifiable with recurrent events (customers who fall behind, catch up, fall behind again), which our data has.
 - $\sigma^2$ is interpretable: how much risk the covariates miss.
 - Connects to clustering. A discrete latent class instead of a normal $u_i$ is a mixture model (`03-clustering.md`).
 
