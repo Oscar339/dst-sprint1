@@ -1,11 +1,13 @@
-"""Data preparation for Oscar's models: the fixes worked out in 01-eda.ipynb.
+"""Data preparation for Oscar's models: the fixes worked out in 01-eda.ipynb,
+plus the ratio features from 02-logistic-regression.ipynb (section 3).
 
 Use from a notebook in Oscar/:
 
     import prep
     X_train, y_train = prep.load("train")
     X_val, y_val = prep.load("validation")
-    X_train, X_val = prep.transform(X_train, X_val)    # fixes 1-4
+    X_train, X_val = prep.transform(X_train, X_val)                # fixes 1-4
+    X_train, X_val = prep.transform(X_train, X_val, ratios=True)   # fixes 1-4 + ratios
 """
 from pathlib import Path
 
@@ -71,12 +73,26 @@ def fix_demographics(df):
     return df
 
 
-def prepare(df):
-    """Fixes 1-3.
+# Ratio features (02-logistic-regression.ipynb, section 3), built from the raw amounts
+def add_ratios(df):
+    """Utilisation (bill / limit, 6 months) and pay ratio (payment / last month's bill, 5 months)."""
+    df = df.copy()
+    for k in range(1, 7):
+        df[f"UTIL_{k}"] = (df[f"BILL_AMT{k}"] / df["LIMIT_BAL"]).clip(upper=1.5)   # a few go up to ~10
+    for k in range(1, 6):
+        bill, paid = df[f"BILL_AMT{k + 1}"], df[f"PAY_AMT{k}"]    # PAY_AMTk pays last month's bill
+        df[f"PAYRATIO_{k}"] = (paid / bill).where(bill > 0, 1).clip(0, 1)   # nothing owed -> 1
+    return df
+
+
+def prepare(df, ratios=False):
+    """Fixes 1-3, plus the ratio features if `ratios`.
 
     These follow fixed rules and learn nothing from the data, so they can be
     applied to each part of the split separately.
     """
+    if ratios:
+        df = add_ratios(df)                       # before fix 2 logs the amounts
     return fix_demographics(fix_amounts(fix_status(df)))
 
 
@@ -88,11 +104,11 @@ def standardise(train, *others):
     return scaled
 
 
-def transform(train, *others):
-    """All fixes (1-4): raw data in, model-ready data out.
+def transform(train, *others, ratios=False):
+    """All fixes (1-4): raw data in, model-ready data out. `ratios` adds the ratio features.
 
     Pass the training data first, then any other parts of the split; the
     scaling is learned from the training data only. Returns them in the same
     order: X_train, X_val = transform(X_train, X_val)
     """
-    return standardise(*[prepare(df) for df in (train, *others)])
+    return standardise(*[prepare(df, ratios) for df in (train, *others)])
