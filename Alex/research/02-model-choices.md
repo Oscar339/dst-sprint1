@@ -51,22 +51,4 @@ truncation).
 | Linear / quadratic in t | Fewer parameters | Assumes a shape of default |
 | Constant | Simplest | Ignores the clear month-to-month differences seen in Sprint 0, unlikely to be a good approach |
 
-## 8. Estimation choices
-
-| Choice | Options | Notes |
-|---|---|---|
-| Penalty | none / L1 / L2, C tuned on validation | Same as Oscar, so comparable |
-| Class weight | ×1 vs ×10 (Botha & Muller default) | Sprint 0: ×10 made the term-structure MAE go from 0.16% to 15%. Weights distort probabilities |
-| Standard errors | Naive vs clustered by customer | Rows from the same person are correlated |
-| Calibration after fitting | none / Platt / isotonic | Sprint 0 notebook 03 method; isotonic fixed probabilities without changing ranking |
-
-## 9. Converting to P(October default)
-
-$P(T \le 7 \mid T > k, x) = 1 - \prod_{t=k+1}^{7} (1 - \hat h(t \mid x))$
-needs covariates for future months. The options:
-- freeze covariates at month k (fair, but loses information);
-- only predict one month ahead (Sep → Oct; uses the most data, but makes the hazard model nearly a one-period logit);
-- simulate future covariates (e.g. with Louis's Markov chain). That's a nice joint piece.
-
-**State which one we use. It drives the result** (Sprint 0's hazard model lost
-to logistic regression partly because of freezing at June).
+---
