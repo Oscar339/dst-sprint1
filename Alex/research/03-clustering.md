@@ -44,7 +44,7 @@ Report the agreed metric separately per cluster, without refitting.
 
 - Add the cluster label as a categorical covariate, or
 - stratify the hazard (a separate baseline $\alpha_t$ per cluster), or
-- the principled version: a **latent-class hazard model**, where class membership and hazard are estimated together (Muthén & Masyn, 2005). This is a discrete version of the frailty model (`01-hazard-models.md` §4), and the cure model is a two-class special case (§5).
+- the principled version: a latent-class hazard model, where class membership and hazard are estimated together (Muthén & Masyn, 2005). This is a discrete version of the frailty model (`01-hazard-models.md` §4), and the cure model is a two-class special case (§5).
 
 **Pros**
 - Allowed by the brief ("creating additional covariates by additional modelling").
