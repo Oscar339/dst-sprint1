@@ -1,12 +1,8 @@
 # Is clustering relevant?
 
-**Yes, but mostly for the metric half, not for raising AUC.**
 
-Bijak & Thomas (2012) tested segmentation (splitting customers into groups
-and fitting a scorecard per group) on two UK banks and a credit bureau. Their
-finding: segmented models were **not** considerably better than a single
-scorecard on any of the real datasets. So expect little predictive gain, and
-cite this when we report it.
+In 2012, Bijak & Thomas tested segmentation, the idea of splitting customers into groups and fitting a scorecard per group, on two UK banks and a credit bureau. Their finding: segmented models were not considerably better than a single scorecard on any of the real datasets. So expect little predictive gain, and
+cite this when we report it. I have also spent time looking at various subpopulations of data and have had similar findings (from work I currently do).
 
 The value is elsewhere: clusters give us natural "types of data" to leave out,
 which is what the brief asks for.
