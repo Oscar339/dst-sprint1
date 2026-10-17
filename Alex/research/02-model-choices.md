@@ -47,20 +47,9 @@ truncation).
 
 | Option | Pros | Cons |
 |---|---|---|
-| Month dummies | Fully flexible | One parameter per month; can't extrapolate |
-| Linear / quadratic in t | Fewer parameters | Assumes a shape |
-| Constant | Simplest | Ignores the clear month-to-month differences seen in Sprint 0 |
-| Spline | Smooth | Pointless with ~4 time points |
-
-## 6. Time-varying effects (proportional hazards check)
-
-Covariate × month interactions. If they matter, proportional hazards fails
-and a single $\beta$ is misleading (Djeundje & Crook, 2019).
-
-## 7. Link function
-
-Logit vs cloglog vs probit. See `01-hazard-models.md` §1–2. Expect small
-differences because monthly hazards are small. Saying *why* is the insight.
+| Month dummies | Fully flexible | One parameter per month, we therefore can't extrapolate |
+| Linear / quadratic in t | Fewer parameters | Assumes a shape of default |
+| Constant | Simplest | Ignores the clear month-to-month differences seen in Sprint 0, unlikely to be a good approach |
 
 ## 8. Estimation choices
 
