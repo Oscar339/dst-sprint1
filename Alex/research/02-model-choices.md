@@ -1,8 +1,6 @@
 # What we can vary inside a hazard model
 
-The brief gives credit for "sensitivity analysis" and "examining the
-mathematical details of choices". Each row below is one such choice. Pick the
-4–5 that matter most and report them in one table and one plot.
+In this section, we will go through what we can vary in terms of the data we've got. We will look at the pros and cons of handling the data in different ways.
 
 ## 1. Event definition
 
@@ -12,12 +10,7 @@ The data has no default date. Months 1–6 need a proxy built from `PAY_*`.
 |---|---|---|
 | 1+ month behind | Many events, stable estimates | Mostly people who are just late, not defaulters |
 | **2+ months behind** (Sprint 0 choice) | Middle ground; matches common "early delinquency" usage | Still a proxy |
-| 3+ months behind (90 days) | Matches the regulatory definition (Basel / IFRS 9 use 90 days past due) | Few events before October, unstable |
-| October label only | The only *real* default | Then there is only one time point, so it's no longer a hazard model |
-
-Note: the event changes meaning in October (proxy → real label). Report how
-well the proxy predicts the label, e.g. the default rate in October for
-customers who hit the proxy in September.
+| 3+ months behind (90 days) | Matches the most common definition of default (90 dpd) | Few events before October |
 
 ## 2. Risk set
 
