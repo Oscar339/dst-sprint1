@@ -7,7 +7,7 @@ cite this when we report it. I have also spent time looking at various subpopula
 The value is elsewhere: clusters give us natural "types of data" to leave out,
 which is what the brief asks for.
 
-## Three uses, in order of value
+## Two uses
 
 ### 1. Leave-one-cluster-out generalisation test
 
@@ -16,13 +16,13 @@ which is what the brief asks for.
 > performance" — Assessment 1 brief
 
 Procedure:
-1. Cluster training customers on their Apr–Sep behaviour.
-2. For each cluster: refit every member's model without it, then score on the test customers in that cluster.
+1. Cluster training customers on their April–September data.
+2. For each cluster, refit every member's model without it, then score on the test customers in that cluster.
 3. Compare with the in-distribution score.
 
 **Pros**
 - Directly what the brief asks for.
-- Applies to all three members' models, so it's a shared group experiment.
+- Applies to all three of our models.
 - Shows whether the "best" model is best everywhere or only on the common customer types.
 
 **Cons**
@@ -34,25 +34,11 @@ Procedure:
 Report the agreed metric separately per cluster, without refitting.
 
 **Pros**
-- Cheap.
+- A lot cheaper to do then 1.
 - An overall AUC can hide a model that is good on easy customers and poor on the risky ones. AUC within a cluster removes the "easy separation between clusters" part.
 
 **Cons**
-- AUC within a cluster with very few defaults is unstable.
-
-### 3. Cluster as a covariate or stratum
-
-- Add the cluster label as a categorical covariate, or
-- stratify the hazard (a separate baseline $\alpha_t$ per cluster), or
-- the principled version: a latent-class hazard model, where class membership and hazard are estimated together (Muthén & Masyn, 2005). This is a discrete version of the frailty model (`01-hazard-models.md` §4), and the cure model is a two-class special case (§5).
-
-**Pros**
-- Allowed by the brief ("creating additional covariates by additional modelling").
-- Interpretable segments.
-
-**Cons**
-- Bijak & Thomas (2012): little gain expected.
-- The clusterer must be fitted on training data only, or it leaks test information.
+- AUC within a cluster with very few defaults could be unstable, look into this.
 
 ## What to cluster on
 
