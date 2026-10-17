@@ -9,7 +9,7 @@ which is what the brief asks for.
 
 ## Three uses, in order of value
 
-### 1. Leave-one-cluster-out generalisation test (best fit to the brief)
+### 1. Leave-one-cluster-out generalisation test
 
 > "if you believe that you can predict new types of data, you could
 > demonstrate this by leaving out some types of data and observing your
@@ -19,10 +19,6 @@ Procedure:
 1. Cluster training customers on their Apr–Sep behaviour.
 2. For each cluster: refit every member's model without it, then score on the test customers in that cluster.
 3. Compare with the in-distribution score.
-
-This is a controlled **dataset shift** (covariate shift: the type of customer
-changes but, maybe, the default mechanism doesn't), see Moreno-Torres et al.
-(2012).
 
 **Pros**
 - Directly what the brief asks for.
