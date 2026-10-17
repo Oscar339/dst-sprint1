@@ -7,10 +7,10 @@ A table of different types of hazard models that will be considered for our proj
 
 | Model | Time | Fit to our data | Effort |
 |---|---|---|---|
-| Discrete-time logit (pooled) | Discrete | Very good | Low |
+| Discrete-time logit | Discrete | Very good | Low |
 | Discrete-time cloglog | Discrete | Very good | Low | 
 | Penalised discrete-time | Discrete | Very good | Low | 
-| Discrete-time with frailty (random effects) | Discrete | Good | Medium |
+| Discrete-time with frailty | Discrete | Good | Medium |
 | Mixture cure | Either | Good | Medium–high |
 | Cox PH (static) | Continuous | Poor | Low |
 | Cox with time-varying covariates | Continuous | Fair | Medium |
