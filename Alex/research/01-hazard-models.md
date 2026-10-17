@@ -18,7 +18,6 @@ A table of different types of hazard models that will be considered for our proj
 | Piecewise exponential (Poisson GLM) | Either | Good | Low |
 | Recurrent events (AG, PWP) | Continuous | Fair | Medium |
 | Varying-coefficient hazard | Discrete | Fair | Medium |
-| Random survival forest | Continuous | Fair | Medium |
 
 ---
 
@@ -183,18 +182,5 @@ improved prediction on a large credit-card sample.
 
 **Cons**
 - With 4–7 months, $\beta(t)$ is just a covariate × month interaction. Cheap to test, but don't over-sell it.
-
-## 12. Random survival forest
-
-A random forest for censored data (Ishwaran et al., 2008).
-
-**Pros**
-- Non-linear, no proportional hazards assumption, handles interactions.
-- `scikit-survival` `RandomSurvivalForest`.
-
-**Cons**
-- Static covariates only in standard implementations.
-- Overlaps Louis's trees.
-- Slow on 18,000 customers (manageable).
 
 ---
