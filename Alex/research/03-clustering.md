@@ -56,5 +56,5 @@ full / revolves / drifts behind / chronically late / inactive). Note that
 
 ## Leakage rules
 
-- Fit the scaler and clusterer on **train only**; assign validation and test customers to the nearest cluster.
-- **Do not use the October label** in clustering. Use only Apr–Sep behaviour and static covariates.
+- Build the clusters on train only data. Then, assign validation and test customers to the nearest cluster.
+- Do not use the October label in clustering. Use only April–September data and static covariates.
