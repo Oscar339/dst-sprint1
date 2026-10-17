@@ -35,13 +35,13 @@ truncation).
 
 | Choice | Options | Notes |
 |---|---|---|
-| Timing | Lag 1, lag 2, frozen at landmark | Lag at least 1: status in month t defines the event, so it can't be a covariate in month t (leakage) |
-| Status coding | −2 / −1 / 0 as categories; 1, 2, 3+ months behind | `data/README.md`: −2/−1/0 are status codes, not amounts of delay |
-| Utilisation | bill / limit | Sprint 0: one of the strongest after month |
-| Payment ratio | paid / previous bill | Captures "pays in full" vs "minimum" |
+| Timing | Lag 1, lag 2, frozen at landmark | Make sure to lag behind by at least 1 month, as a lag of 0 would mean that we are using the months own data to predict itself |
+| Status coding | −2 / −1 / 0 as categories; 1, 2, 3+ months behind | `data/README.md`: −2/−1/0 are status codes, not amounts of delay. SO, this approach seems good |
+| Utilisation | bill / limit | From Sprint 0, this is one of the strongest indicators after month |
+| Payment ratio | paid / previous bill | Captures pays in full vs minimum |
 | Trend | Slope of utilisation or status over the last 3 months | Malik & Thomas (2012) needed a 2nd-order Markov chain, i.e. history beyond the last month matters |
-| Static | log limit, age, sex, education, marriage | Sprint 0: age added nothing |
-| Cluster label | From `03-clustering.md` | "Creating additional covariates by additional modelling" (brief) |
+| Static | log limit, age, sex, education, marriage | From Sprint 0, we learnt that age added nothing. Look at Oscar's trend analysis and information values |
+| Cluster label | From `03-clustering.md` | We could create additional covariates by additional modelling, mentioned in lectures. Further research needed to see if this is a valid approach |
 
 ## 5. Baseline hazard $\alpha_t$
 
