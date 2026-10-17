@@ -9,7 +9,7 @@ The data has no default date. Months 1–6 need a proxy built from `PAY_*`.
 | Option | Pros | Cons |
 |---|---|---|
 | 1+ month behind | Many events, stable estimates | Mostly people who are just late, not defaulters |
-| **2+ months behind** (Sprint 0 choice) | Middle ground; matches common "early delinquency" usage | Still a proxy |
+| 2+ months behind (Sprint 0 choice) | Middle ground; matches common "early delinquency" usage | Still a proxy |
 | 3+ months behind (90 days) | Matches the most common definition of default (90 dpd) | Few events before October |
 
 ## 2. Risk set
