@@ -97,9 +97,8 @@ separates "if" from "when". Dirick et al. (2017) benchmarked it on 10 credit
 datasets, and it was among the better methods.
 
 **Pros**
-- A good fit for our data as 78% do not default in October, and most never fall behind at all.
+- A good fit for our data as 78% do not default in October and most never enter arrears at all.
 - Separates who is at risk from when.
-- Innovation marks: not covered in the course
 
 **Cons**
 - Identifiability needs long follow-up. With 7 months, "cured" and "not yet defaulted" are hard to tell apart. This is the main risk but is common throughout all models
@@ -129,7 +128,7 @@ covariates. `lifelines` `CoxTimeVaryingFitter`.
 - Continuous-time counterpart to model 1. Same data structure, so a fair comparison.
 
 **Cons**
-- Same ties problem as 6.
+- Similar problem as 6.
 - Future covariates are unknown. `lifelines` does not predict from the time-varying fitter. We have to have fixed covariates or use landmarking (`05-other-ideas.md`).
 
 ## 8. Parametric / accelerated failure time (Weibull, log-logistic, log-normal)
@@ -156,9 +155,9 @@ Equivalent to Cox when the pieces are fine enough.
 **Cons**
 - Mostly duplicates model 2 numerically for our data.
 
-## 10. Recurrent-event models (Andersen–Gill, PWP)
+## 10. Recurrent-event models
 
-Models every time a customer falls behind, not just the first.
+This models every time a customer falls behind, not just the first.
 - **Andersen–Gill** (Andersen & Gill, 1982): one common hazard, counting process.
 - **PWP** (Prentice, Williams & Peterson, 1981): stratified by event number, so the 2nd delinquency can behave differently from the 1st.
 - Credit tutorial with code: Botha, Verster & Scheepers (2025).
@@ -181,6 +180,6 @@ improved prediction on a large credit-card sample.
 - Recent credit-specific paper to cite.
 
 **Cons**
-- With 4–7 months, $\beta(t)$ is just a covariate × month interaction. Cheap to test, but don't over-sell it.
+- With 4–7 months, $\beta(t)$ is just a covariate × month interaction. Cheap to test.
 
 ---
