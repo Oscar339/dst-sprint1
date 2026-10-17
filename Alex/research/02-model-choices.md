@@ -16,20 +16,20 @@ The data has no default date. Months 1–6 need a proxy built from `PAY_*`.
 
 | Option | Pros | Cons |
 |---|---|---|
-| First event only, drop people already behind at the start | Clean single-event survival model | Drops the riskiest customers (17% in Sprint 0), so it can't score the full test set |
+| First event only, drop people already behind at the start | Clean single-event survival model | Drops the riskiest customers (we did this in Sprint 0) |
 | First event only, keep them with a "prior delinquency" covariate | Scores everyone | Their "time" axis means something different |
-| **Recurrent: everyone at risk every month**, previous status as a covariate | Scores everyone; uses all transitions | Becomes close to a Markov chain (overlap with Louis); rows not independent |
+| Recurrent: everyone at risk every month, previous status as a covariate | Scores everyone anduses all transitions | Similar to a Markov chain |
 
 ## 3. Time origin and landmark
 
-No account age, so "time" is calendar month, not account age (left
+From the data we have, there is no account age. Therefore, time means calendar month, not account age (left
 truncation).
 
 | Option | Pros | Cons |
 |---|---|---|
 | t = 1 is April | Uses all data | Time 1 is arbitrary, not account opening |
-| Landmark at month k (e.g. June), predict ahead | Matches an "early warning" use; fair comparison with Oscar's model | Less data |
-| Several landmarks stacked (van Houwelingen, 2007) | Uses more data; one model for any prediction date | More complex; check rows aren't double-counted |
+| Landmark at month k (e.g. June), predict ahead | Matches an "early warning" use which is a fair comparison with Oscar's model | Less data |
+| Several landmarks stacked (van Houwelingen, 2007) | Uses more data (historical), one model for any prediction date | More complex |
 
 ## 4. Covariates
 
