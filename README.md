@@ -46,7 +46,7 @@ All report content is in `report/`, numbered `NN-Name.ext` in reading order.
 _To be filled in as the report is written._
 
 1. `01-Data.ipynb` — downloads and cleans the Taiwan data, using the same
-   process as Sprint 0 (cited there), and makes the shared split: 60% train,
+   steps as our Sprint 0 project, and makes the shared split: 60% train,
    20% validation, 20% test, stratified by default, seed 2026.
    **Run this first**: it makes `data/processed/taiwan-train.csv`,
    `taiwan-validation.csv` and `taiwan-test.csv`, which every model loads:
@@ -87,13 +87,6 @@ Each member's working, including dead ends, is in their own folder:
 
 * Yeh, I-C. (2009). *Default of Credit Card Clients* [dataset]. UCI Machine
   Learning Repository. https://doi.org/10.24432/C55S3H
-
-### Previous work
-
-* Butler, O., Robinson, A. & Mulryan, L. (2026). *Data Science Toolbox Sprint 0:
-  Credit Default Risk* [code and report]. GitHub, commit 577d547.
-  https://github.com/Oscar339/dst-sprint0 — the data cleaning in
-  `report/01-Data.ipynb` is carried over from its `01-Introduction.ipynb`.
 
 ### Papers
 
