@@ -48,14 +48,6 @@ from Sprint 0 or from memory; **check before the final report**.
 - ✓ Huang, Z. (1998). Extensions to the k-means algorithm for clustering large data sets with categorical values. *Data Mining and Knowledge Discovery* 2(3), 283–304.
 - Rousseeuw, P. J. (1987). Silhouettes: a graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics* 20, 53–65.
 
-## Metrics and generalisation
-
-- DeLong, E. R., DeLong, D. M. & Clarke-Pearson, D. L. (1988). Comparing the areas under two or more correlated receiver operating characteristic curves: a nonparametric approach. *Biometrics* 44(3), 837–845.
-- Gneiting, T. & Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. *JASA* 102(477), 359–378.
-- Hand, D. J. (2009). Measuring classifier performance: a coherent alternative to the area under the ROC curve. *Machine Learning* 77(1), 103–123.
-- ✓ Lessmann, S., Baesens, B., Seow, H.-V. & Thomas, L. C. (2015). Benchmarking state-of-the-art classification algorithms for credit scoring: an update of research. *EJOR* 247(1), 124–136. [doi:10.1016/j.ejor.2015.05.030](https://doi.org/10.1016/j.ejor.2015.05.030)
-- ✓ Moreno-Torres, J. G., Raeder, T., Alaiz-Rodríguez, R., Chawla, N. V. & Herrera, F. (2012). A unifying view on dataset shift in classification. *Pattern Recognition* 45(1), 521–530. [doi:10.1016/j.patcog.2011.06.019](https://doi.org/10.1016/j.patcog.2011.06.019)
-
 ## Software
 
 - \* Davidson-Pilon, C. (2019). lifelines: survival analysis in Python. *JOSS* 4(40), 1317. [doi:10.21105/joss.01317](https://doi.org/10.21105/joss.01317)
