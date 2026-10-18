@@ -23,9 +23,9 @@ data or simulation.
 
 ## Project Group
 
-* Oscar Butler — _to be agreed_
-* Alex Robinson — _to be agreed_
-* Louis Mulryan — _to be agreed_
+* Oscar Butler — Data handling and regression
+* Alex Robinson — Hazard and clustering
+* Louis Mulryan — Markov and forests
 
 Equity: _to be agreed before the work gets underway_ (the brief asks for this).
 
