@@ -21,12 +21,9 @@ A table of different types of hazard models that will be considered for our proj
 
 ---
 
-## 1. Discrete-time hazard, logit link (pooled logit)
+## 1. Discrete-time hazard, logit link
 
-$\mathrm{logit}\, h(t \mid x) = \alpha_t + \beta^\top x_{t-1}$, fitted by
-ordinary logistic regression on a person-month table (Allison, 1982; Singer &
-Willett, 1993; Tutz & Schmid, 2016). Shumway (2001) used this for bankruptcy;
-Bellotti & Crook (2013) for credit cards.
+$\mathrm{logit}\, h(t \mid x) = \alpha_t + \beta^\top x_{t-1}$, fitted by ordinary logistic regression on a person-month table (Allison, 1982; Singer & Willett, 1993; Tutz & Schmid, 2016). Shumway (2001) used this for bankruptcy and Bellotti & Crook (2013) for credit cards. There is plenty of resources online for this, definitely worth pursuing. This is an approach that I use in my current job, it is particularly useful as the process is very understandable, allowing for our code to be auditable and used in the financial sector for decision making.
 
 **Pros**
 - Our data is monthly, so time is discrete.
@@ -43,8 +40,7 @@ Bellotti & Crook (2013) for credit cards.
 
 ## 2. Discrete-time hazard, complementary log-log link
 
-$\log(-\log(1 - h(t \mid x))) = \alpha_t + \beta^\top x$. This is the exact
-discrete (grouped-time) version of the Cox model (Prentice & Gloeckler, 1978).
+$\log(-\log(1 - h(t \mid x))) = \alpha_t + \beta^\top x$. The discrete version of the Cox model (Prentice & Gloeckler, 1978). There is lots of material online for models of this structure, this is similar to the model above and will likely yield simialr results.
 
 **Pros**
 - Often more consistent than logit link as complementary log-log link reverses the relationship between a continuous-time hazard rate and the probability of an event occurring within a discrete interval
@@ -56,8 +52,7 @@ discrete (grouped-time) version of the Cox model (Prentice & Gloeckler, 1978).
 
 ## 3. Penalised discrete-time hazard (L1 / L2)
 
-The same discrete-time hazard but with a penalty, tuned on validation (Tutz &
-Schmid, 2016, ch. 7).
+The same discrete-time hazard but with a penalty, tuned on validation (Tutz & Schmid, 2016, ch. 7). This is also a very well known approach, when used in financial situations, penalising has to be done carefully in light of financial fairness.
 
 **Pros**
 - Variable selection among many correlated monthly features. Bill amounts are highly collinear (Sprint 0 VIF finding).
@@ -68,10 +63,7 @@ Schmid, 2016, ch. 7).
 
 ## 4. Frailty / random-effects discrete-time hazard
 
-Adds a customer-level random intercept:
-$\mathrm{logit}\, h_{it} = \alpha_t + \beta^\top x_{it} + u_i$,
-$u_i \sim N(0, \sigma^2)$. Unobserved differences between customers ("some
-people are just riskier") - hidden variables. Discrete-time frailty model: Tutz & Schmid (2016, Chapter 9) - models the hazard over discrete time intervals, accounting for unobserved differences in individuals’ underlying risk through a frailty term. Latent-class frailty model: Muthén & Masyn (2005) - accounts for unobserved heterogeneity by assigning individuals to latent subgroups, which may have different hazard patterns and, depending on the specification, additional within-class frailty.
+Adds a customer-level random intercept: $\mathrm{logit}\, h_{it} = \alpha_t + \beta^\top x_{it} + u_i$, $u_i \sim N(0, \sigma^2)$. Unobserved differences between customers ("some people are just riskier") - hidden variables. Discrete-time frailty model: Tutz & Schmid (2016, Chapter 9) - models the hazard over discrete time intervals, accounting for unobserved differences in individuals’ underlying risk through a frailty term. Latent-class frailty model: Muthén & Masyn (2005) - accounts for unobserved heterogeneity by assigning individuals to latent subgroups, which may have different hazard patterns and, depending on the specification, additional within-class frailty.
 
 **Pros**
 - Fixes the non-independence of rows from the same customer (con of model 1).
@@ -85,16 +77,11 @@ people are just riskier") - hidden variables. Discrete-time frailty model: Tutz 
 
 ## 5. Mixture cure model
 
-Assumes a fraction of customers will never default ("cured"). The model
-has two parts:
+Assumes a fraction of customers will never default ("cured"). The model has two parts:
 - an incidence part (logistic): is this customer susceptible?
 - a latency part (hazard): if susceptible, when do they default?
 
-Credit application: Tong, Mues & Thomas (2012), on UK personal loans. They
-found discrimination similar to Cox and logistic regression, but survival
-models were better calibrated for intermediate horizons. The cure model also
-separates "if" from "when". Dirick et al. (2017) benchmarked it on 10 credit
-datasets, and it was among the better methods.
+Credit application: Tong, Mues & Thomas (2012), on UK personal loans. They found discrimination similar to Cox and logistic regression, but survival models were better calibrated for intermediate horizons. The cure model also separates "if" from "when". Dirick et al. (2017) benchmarked it on 10 credit datasets, and it was among the better methods.
 
 **Pros**
 - A good fit for our data as 78% do not default in October and most never enter arrears at all.
@@ -106,8 +93,7 @@ datasets, and it was among the better methods.
 
 ## 6. Cox proportional hazards (static covariates)
 
-$h(t \mid x) = h_0(t) \exp(\beta^\top x)$, by partial likelihood (Cox, 1972).
-The credit-scoring standard (Stepanova & Thomas, 2002; Bellotti & Crook, 2009).
+$h(t \mid x) = h_0(t) \exp(\beta^\top x)$, by partial likelihood (Cox, 1972). The credit-scoring standard (Stepanova & Thomas, 2002; Bellotti & Crook, 2009). There is a lot of material on cox proportional hazards with static and time-varying covariates. One of the best-performing simple models, in my opinion. My not have enough data to be as effective as I'd like, definitely worth trying.
 
 **Pros**
 - Most cited, so easiest to find resources for.
@@ -120,8 +106,7 @@ The credit-scoring standard (Stepanova & Thomas, 2002; Bellotti & Crook, 2009).
 
 ## 7. Cox with time-varying covariates (counting-process form)
 
-Each customer is split into (start, stop] intervals with that month's
-covariates. `lifelines` `CoxTimeVaryingFitter`.
+Each customer is split into (start, stop] intervals with that month's covariates. `lifelines` `CoxTimeVaryingFitter`.
 
 **Pros**
 - Uses monthly status, utilisation and payments as they change, like Bellotti & Crook (2013).
@@ -133,8 +118,7 @@ covariates. `lifelines` `CoxTimeVaryingFitter`.
 
 ## 8. Parametric / accelerated failure time (Weibull, log-logistic, log-normal)
 
-Assumes a distribution for time to default. AFT: covariates stretch or shrink
-time. Benchmarked in Dirick et al. (2017).
+Assumes a distribution for time to default. AFT: covariates stretch or shrink time. Benchmarked in Dirick et al. (2017).
 
 **Pros**
 - Smooth hazard, extrapolates beyond the data.
