@@ -5,6 +5,8 @@ pandas==3.0.6
 matplotlib==3.11.2
 scipy==1.18.1
 scikit-learn==1.9.1
+statsmodels==0.15.0  # GLM hazard models (Alex/modelling)
+lifelines==0.30.3    # Cox model with time-varying covariates (Alex/modelling)
 xlrd==2.0.2          # reads the Taiwan dataset's old-format .xls
 jupyter
 ipykernel
