@@ -23,4 +23,5 @@ from this folder). `03` takes about two minutes, `04` about one. The saved outpu
 * Same shared split as Oscar and Louis (seed 2026). Everything is chosen on the training customers by
   cross-validation; the validation set is a single check; the test set is used once, for the final model.
 * Code is lifted only from documented, citable Python sources (library documentation and examples). Other sources
-  are cited for the approach, and the code is my own. Each notebook lists its sources at the top.
+  are cited for the approach, and the code is my own. `02` and `04` list their sources at the top; `03` uses
+  library calls from statsmodels, scikit-learn, lifelines and SciPy, as documented.
