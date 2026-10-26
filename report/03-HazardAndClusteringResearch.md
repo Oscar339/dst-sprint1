@@ -58,7 +58,7 @@ From the data we have, there is no default date and no account age, so some choi
 
 | Choice | Options | What we chose and why |
 |---|---|---|
-| Event | 1+, 2+ or 3+ months behind | 2+ months behind for June to September, a middle ground, and the default label for October |
+| Event | 1+, 2+ or 3+ months behind | 2 or more months behind for June to September, and the default label for October. The codes go up to 8 months late, but 3+ is rare (under 2% of months), while 1+ would count a single late payment. 2+ is a stand-in event, not a default |
 | Risk set | Drop customers already behind, or keep everyone | Keep everyone every month, with last month's status as a covariate. This keeps the riskiest customers, so every test customer gets a prediction (in Sprint 0 we dropped them) |
 | Time | Calendar month, landmarks | Calendar month, as there is no account age |
 | Covariate timing | Lag 1, lag 2, frozen | Lag by one month, as a lag of 0 would mean using a month's own data to predict itself |
