@@ -59,12 +59,11 @@ From the data we have, there is no default date and no account age, so some choi
 
 | Choice | Options | What we chose and why |
 |---|---|---|
-| Event | 1+, 2+ or 3+ months behind | 2+ months behind for June to September, a middle ground, and the real default label for October |
+| Event | 1+, 2+ or 3+ months behind | 2+ months behind for June to September, a middle ground, and the default label for October |
 | Risk set | Drop customers already behind, or keep everyone | Keep everyone every month, with last month's status as a covariate. This keeps the riskiest customers, so every test customer gets a prediction (in Sprint 0 we dropped them) |
 | Time | Calendar month, landmarks | Calendar month, as there is no account age |
 | Covariate timing | Lag 1, lag 2, frozen | Lag by one month, as a lag of 0 would mean using a month's own data to predict itself |
 | Status coding | Numbers or categories | Categories, as -2, -1 and 0 are status codes, not months of delay |
-| Covariates | | Status, utilisation (bill / limit) and payment ratio (paid / previous bill), plus log limit, age, sex, education and marriage |
 | Baseline | Month dummies, linear, constant | A separate intercept for each month, which is fully flexible |
 
 ## Clustering
