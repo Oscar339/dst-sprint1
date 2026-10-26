@@ -1,17 +1,14 @@
 # Hazard modelling: research and plan
 
-In this section, we look at what hazard models could be useful for our project, what choices we have in setting one
-up with our data, and how clustering can help test the performance metric. It ends with what we decided to build,
-which is carried out in `04-HazardModels.ipynb`. The full working, including the longer research notes and
+In this section, we look at what hazard models could be useful for our project, what choices we have when modelling with our data, and how clustering can help test the performance metric. It ends with what we decided to build, which is carried out in `04-HazardModels.ipynb`. The full working, including the longer research notes and
 references, is in `Alex/`.
 
 ## Why a hazard model?
 
 A standard credit model asks whether a customer defaults. A hazard model asks, each month, "given this customer has
-made it this far, what is the chance of the event now?" (Allison, 1982). This suits our data well, as the data is
+made it this far, what is the chance of the event now?". This suits our data well, as the data is
 monthly - six months of repayment status, bills and payments from April to September, followed by the October
-default label. Hazard models are widely used for credit scoring (Shumway, 2001; Bellotti & Crook, 2013), and I have
-worked with and built them before, though with different data and different goals in mind.
+default label. Hazard models are widely used for credit scoring, and I have worked with and built them before in the credit industry, though with different data and different goals in mind.
 
 ## Types of hazard model
 
