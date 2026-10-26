@@ -5,7 +5,7 @@ the plan, then the further research behind it (in `../research/`), and then the 
 
 | Order | File | What it is |
 |---|---|---|
-| 1 | `01-plan.ipynb` | What we decided to do and why, and how we test the different kinds of generalisation |
+| 1 | `01-plan.md` | What we decided to do and why, and how we test the different kinds of generalisation |
 | 2 | `../research/` | The further research: types of hazard model, what we can vary, clustering and references |
 | 3 | `02-data.ipynb` | Builds the person-month table: the timeline, the event, the lags and the checks |
 | 4 | `03-hazard-models.ipynb` | Every hazard model (logit, cloglog, L1 / L2 penalised and time-varying Cox) plus an October-only logistic regression. Covers cross-validation by customer, AIC / BIC, choosing the penalty, ROC and precision-recall curves, a bootstrap, calibration and a next-month test. The test-set predictions are written here at the end (commented out for now) |
