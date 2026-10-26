@@ -7,8 +7,7 @@ references, is in `Alex/`.
 
 A standard credit model asks whether a customer defaults. A hazard model asks, each month, "given this customer has
 made it this far, what is the chance of the event now?". This suits our data well, as the data is
-monthly - six months of repayment status, bills and payments from April to September, followed by the October
-default label. Hazard models are widely used for credit scoring, and I have worked with and built them before in the credit industry, though with different data and different goals in mind.
+monthly. Hazard models are widely used for credit scoring, and I have worked with and built them before in the credit industry, though with different data and different goals in mind.
 
 ## Types of hazard model
 
