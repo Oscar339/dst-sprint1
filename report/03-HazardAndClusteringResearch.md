@@ -42,8 +42,7 @@ The other models we chose each change one thing from the logit model, so we can 
   Gloeckler, 1978), and is the correct model if defaults really happen in continuous time but we only see them
   monthly. With small monthly hazards it will likely give similar results to the logit.
 * Penalised (L1 / L2) - useful for variable selection, as the monthly bill amounts are highly correlated (seen in
-  Sprint 0). A penalty can have a negative effect on calibration, and in finance it has to be used carefully in light
-  of fairness.
+  Sprint 0). A penalty can have a negative effect on calibration, and in finance it has to be used fairly.
 * Cox with time-varying covariates - the most cited model in credit scoring (Stepanova & Thomas, 2002; Bellotti &
   Crook, 2009), with no assumption on the shape of the baseline hazard. It uses the monthly status, utilisation and
   payments as they change, on the same rows as the logit model, so it is a fair comparison.
