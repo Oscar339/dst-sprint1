@@ -22,7 +22,7 @@ We first considered a broad range of hazard models:
 | Mixture cure | Either | Good | Medium–high |
 | Cox PH (static) | Continuous | Poor | Low |
 | Cox with time-varying covariates | Continuous | Fair | Medium |
-| Parametric AFT (Weibull etc.) | Continuous | Poor | Low |
+| Parametric AFT | Continuous | Poor | Low |
 | Recurrent events | Continuous | Fair | Medium |
 
 The discrete-time logit model is fitted as an ordinary logistic regression on a person-month table, with one row per
