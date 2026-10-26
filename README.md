@@ -60,6 +60,13 @@ _To be filled in as the report is written._
    `PAY_0` is renamed `PAY_1` in the clean file, and the `PAY_*` codes -2, -1
    and 0 are categories, not months of delay.
 
+3. `03-HazardResearch.md` (Alex) — the research behind the hazard models and
+   clustering, and what we decided to build.
+4. `04-HazardModels.ipynb` (Alex) — the hazard models, the clustering checks on
+   the performance metric, and a conclusion. Needs `statsmodels` and
+   `lifelines` (in `requirements.txt`); takes about three minutes. The longer
+   working is in `Alex/`.
+
 ### Requirements
 
 Python 3.13. From the repository root:
