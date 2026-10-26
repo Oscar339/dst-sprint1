@@ -48,9 +48,9 @@ The other models we chose each change one thing from the logit model, so we can 
   Crook, 2009), with no assumption on the shape of the baseline hazard. It uses the monthly status, utilisation and
   payments as they change, on the same rows as the logit model, so it is a fair comparison.
 
-We did not build the others. The frailty model adds a hidden "riskiness" for each customer, which could be poorly
-estimated with only a few rows per customer. The mixture cure model (Tong, Mues & Thomas, 2012) assumes some
-customers will never default, which fits our data, as 78% do not default in October - but with only seven months,
+We did not build the others because of personal experience and research. The frailty model adds a hidden "riskiness" 
+for each customer, which could be poorly estimated with only a few rows per customer. The mixture cure model (Tong, Mues & Thomas, 2012) 
+assumes some customers will never default, which fits our data, as 78% do not default in October - but with only seven months,
 "cured" and "not yet defaulted" are hard to tell apart, and there is no Python package that fits it with covariates.
 An AFT model assumes a distribution for the time to default, which we cannot check with so few time points.
 
@@ -73,18 +73,17 @@ From the data we have, there is no default date and no account age, so some choi
 In 2012, Bijak & Thomas tested segmentation, the idea of splitting customers into groups and fitting a scorecard per
 group, on two UK banks and a credit bureau. Their finding was that segmented models were not considerably better than
 a single scorecard on any of the real datasets. I have also looked at various subpopulations of data in my own work
-and had similar findings, so we do not expect clustering to improve the model.
+and had similar findings, so I do not expect clustering to improve the model.
 
-The value of clustering is elsewhere - clusters give us natural "types of data" to leave out, which is what the brief
+However, clustering is important as clusters give us natural "types of data" to leave out, which is what the brief
 asks for. We use them in two ways:
 
 1. Leave one cluster out - refit the model without one cluster and score it on that cluster, to see whether the model
    can handle a type of customer it has never seen.
 2. Metrics within each cluster - an overall AUC can hide a model that is good on easy customers and poor on the risky
-   ones. This is a lot cheaper to do than 1, though the AUC could be unstable in a cluster with few defaults.
+   ones..
 
-We cluster with k-means on a summary of each customer's April-September behaviour. The clusters are a tool rather
-than true groups, so the number of clusters is something we vary to check whether our conclusions depend on it. The
+We cluster with k-means on a summary of each customer's April-September behaviour. The
 clusters are built on the training data only, and the October label is never used to build them.
 
 ## What we decided
