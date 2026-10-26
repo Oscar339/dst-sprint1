@@ -29,23 +29,21 @@ payments from April to September, followed by the October default label.
 ## 3. Testing generalisation
 
 The brief asks when the performance metric tells us something about how the model would do in the real world.
-"Generalise" can mean different things, and each one needs a different split of the data, so we test each one
+Generalise can mean different things with each needing a different approach. Each approach needs a different split of the data, so we test each one
 separately:
 
-| Generalise to | How we test it | Where |
-|---|---|---|
-| New customers similar to the training ones | Grouped cross-validation and the shared validation set | `03`, sections 2 and 5 |
-| The next month | Fit on the months up to August and predict September | `03`, section 8 |
-| A type of customer the model has never seen | Leave one cluster out | `04`, section 7 |
-| A new time period | Not tested, as we only have one six-month window | Limitation |
+| Generalise to | How we test it |
+|---|---|
+| New customers similar to the training ones | Grouped cross-validation and the shared validation set |
+| The next month | Fit on the months up to August and predict September |
+| A type of customer the model has never seen | Leave one cluster out |
+| A new time period | Not tested, as we only have one six-month window |
 
 An overall AUC can also hide poor performance within groups of customers, so we also report the metric within each
-cluster (`04`, section 6).
+cluster.
 
 ## 4. Ground rules
 
-* We use the same shared split as Oscar and Louis (`report/01-Data.ipynb`, seed 2026).
+* We use the same shared split as Oscar and Louis.
 * Everything is chosen on the training customers using cross-validation. The validation set is then used as a
-  single check, and the test set is only used once, for the final model, to write `data/output/predictions-alex.csv`.
-
-Next, `02-data.ipynb` builds the person-month table.
+  single check, and the test set is only used once.
