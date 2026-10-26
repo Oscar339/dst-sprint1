@@ -1,6 +1,6 @@
 # Hazard modelling: research and plan
 
-In this section, we look at what hazard models could be useful for our project, what choices we have when modelling with our data, and how clustering can help test the performance metric. It ends with what we decided to build, which is carried out in `04-HazardModels.ipynb`. The full working, including the longer research notes and
+In this section, we look at what hazard models could be useful for our project, what choices we have when modelling with our data, and how clustering can help. It ends with what we decided to build, which is carried out in `04-HazardAndClusteringModels.ipynb`. The full working, including the longer research notes and
 references, is in `Alex/`.
 
 ## Why a hazard model?
@@ -23,7 +23,6 @@ We first considered a broad range of hazard models:
 | Cox PH (static) | Continuous | Poor | Low |
 | Cox with time-varying covariates | Continuous | Fair | Medium |
 | Parametric AFT | Continuous | Poor | Low |
-| Recurrent events | Continuous | Fair | Medium |
 
 The discrete-time logit model is fitted as an ordinary logistic regression on a person-month table, with one row per
 customer for each month they are at risk:
