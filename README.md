@@ -60,12 +60,20 @@ _To be filled in as the report is written._
    `PAY_0` is renamed `PAY_1` in the clean file, and the `PAY_*` codes -2, -1
    and 0 are categories, not months of delay.
 
-3. `03-HazardResearch.md` (Alex) — the research behind the hazard models and
-   clustering, and what we decided to build.
-4. `04-HazardModels.ipynb` (Alex) — the hazard models, the clustering checks on
+2. `02-LogisticRegression.ipynb` (Oscar) — the baseline: regularised logistic
+   regression, ratio and trend features, calibration.
+3. `03-SVM.ipynb` (Oscar) — support vector machine, tuning C and $\gamma$,
+   compared with the linear model.
+4. `04-RandomForest.ipynb` (Louis) — random forest and gradient boosting.
+5. `05-MarkovChain.ipynb` (Louis) — Markov chain models of the monthly
+   payment status.
+6. `06-HazardAndClusteringResearch.md` (Alex) — the research behind the hazard
+   models and clustering, and what we decided to build.
+7. `07-HazardAndClusteringModels.ipynb` (Alex) — the hazard models, the clustering checks on
    the performance metric, and a conclusion. Needs `statsmodels` and
    `lifelines` (in `requirements.txt`); takes about three minutes. The longer
    working is in `Alex/`.
+8. `08-FinalModels.ipynb` — every model scored on the shared test set.
 
 ### Requirements
 
