@@ -1,6 +1,6 @@
 # Hazard modelling: research and plan
 
-In this section, we look at what hazard models could be useful for our project, what choices we have when modelling with our data, and how clustering can help. It ends with what we decided to build, which is carried out in `04-HazardAndClusteringModels.ipynb`. The full working, including the longer research notes and
+In this section, we look at what hazard models could be useful for our project, what choices we have when modelling with our data, and how clustering can help. It ends with what we decided to build, which is carried out in `07-HazardAndClusteringModels.ipynb`. The full working, including the longer research notes and
 references, is in `Alex/`.
 
 ## Why a hazard model?
@@ -89,8 +89,8 @@ clusters are built on the training data only, and the October label is never use
 |---|---|
 | Main model | Discrete-time logit hazard |
 | Other models | Cloglog link, L1 / L2 penalty, Cox with time-varying covariates, plus a logistic regression on the October rows only, to test whether the extra months help |
-| Comparing models | 10-fold cross-validation, leaving out whole customers, as a customer's rows are not independent. AIC and BIC as well |
-| Metrics | AUC with ROC and precision-recall curves, Brier score, log loss and calibration. With 22% default, accuracy could be misleading - AUC measures ranking, while the Brier score and log loss reward honest probabilities |
+| Comparing models | 10-fold cross-validation, leaving out whole customers, as a customer's rows are not independent (Lawson, 2026, 02.2). AIC and BIC as well |
+| Metrics | AUC with ROC and precision-recall curves, Brier score, log loss and calibration. With 22% default, accuracy could be misleading - AUC measures ranking, while the Brier score and log loss reward honest probabilities (Lawson, 2026, 01.2) |
 | Uncertainty | Bootstrap over customers, not customer-months |
 | Ground rules | The same shared split as Oscar and Louis. Everything is chosen on the training customers, the validation set is used as a single check, and the test set is only used once |
 
@@ -103,3 +103,20 @@ Generalise can mean different things, and each needs a different split of the da
 | The next month | Fit on the months up to August and predict September |
 | A type of customer the model has never seen | Leave one cluster out |
 | A new time period | Not tested, as we only have one six-month window |
+
+## References
+
+- Bellotti, T. & Crook, J. (2009). Credit scoring with macroeconomic variables using survival analysis. *Journal of
+  the Operational Research Society* 60(12), 1699–1707. https://doi.org/10.1057/jors.2008.130
+- Bijak, K. & Thomas, L. C. (2012). Does segmentation always improve model performance in credit scoring? *Expert
+  Systems with Applications* 39(3), 2433–2442. https://doi.org/10.1016/j.eswa.2011.08.093
+- Lawson, D. (2026). *Data Science Toolbox* (MATHM0029), lectures 01.2 Introduction to Classification and
+  02.2 Cross Validation. University of Bristol. https://dsbristol.github.io/dst/
+- Prentice, R. L. & Gloeckler, L. A. (1978). Regression analysis of grouped survival data with application to breast
+  cancer data. *Biometrics* 34(1), 57–67. https://doi.org/10.2307/2529588
+- Shumway, T. (2001). Forecasting bankruptcy more accurately: a simple hazard model. *Journal of Business* 74(1),
+  101–124. https://doi.org/10.1086/209665
+- Stepanova, M. & Thomas, L. (2002). Survival analysis methods for personal loan data. *Operations Research* 50(2),
+  277–289. https://doi.org/10.1287/opre.50.2.277.426
+- Tong, E. N. C., Mues, C. & Thomas, L. C. (2012). Mixture cure models in credit scoring: if and when borrowers
+  default. *European Journal of Operational Research* 218(1), 132–139. https://doi.org/10.1016/j.ejor.2011.10.007
