@@ -70,7 +70,7 @@ From the data we have, there is no default date and no account age, so some choi
 In 2012, Bijak & Thomas tested segmentation, the idea of splitting customers into groups and fitting a scorecard per
 group, on two UK banks and a credit bureau. Their finding was that segmented models were not considerably better than
 a single scorecard on any of the real datasets. I have also looked at various subpopulations of data in my own work
-and had similar findings, so I do not expect clustering to improve the model.
+and had similar findings.
 
 However, clustering is important as clusters give us natural "types of data" to leave out, which is what the brief
 asks for. We use them in two ways:
