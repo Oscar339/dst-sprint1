@@ -6,8 +6,7 @@ Following the unit's practice:
   **Not committed**; `report/01-Data.ipynb` re-creates it.
 * `data/processed/` — anything derived, made by code (the cleaned data and the
   shared train / validation / test split). **Not committed**; regenerate it.
-* `data/output/` — final outputs: figures, and each model's test-set
-  predictions as `predictions-<name>.csv`.
+* `data/output/` — final outputs: figures made by the report notebooks.
 
 Commit the code that makes these files, not the raw or processed files
 themselves (GitHub size limits, and binary data bloats the history).
