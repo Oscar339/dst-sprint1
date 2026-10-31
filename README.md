@@ -129,9 +129,16 @@ Each member's working, including dead ends, is in their own folder:
 * Bijak, K. & Thomas, L. C. (2012). Does segmentation always improve model
   performance in credit scoring? *Expert Systems with Applications* 39(3),
   2433–2442. https://doi.org/10.1016/j.eswa.2011.08.093
+* Chen, S. F. & Goodman, J. (1996). An empirical study of smoothing techniques
+  for language modeling. In *Proceedings of the 34th Annual Meeting of the
+  Association for Computational Linguistics*, 310–318.
+  https://arxiv.org/abs/cmp-lg/9606011
 * Keerthi, S. S. & Lin, C.-J. (2003). Asymptotic behaviors of support vector
   machines with Gaussian kernel. *Neural Computation* 15(7), 1667–1689.
   https://doi.org/10.1162/089976603321891855
+* Leow, M. & Crook, J. (2014). Intensity models and transition probabilities
+  for credit card loan delinquencies. *European Journal of Operational
+  Research* 236(2), 685–694. https://doi.org/10.1016/j.ejor.2013.12.026
 * Malik, M. & Thomas, L. C. (2012). Transition matrix models of consumer credit
   ratings. *International Journal of Forecasting* 28(1), 261–272.
   https://doi.org/10.1016/j.ijforecast.2011.01.007
@@ -151,6 +158,10 @@ Each member's working, including dead ends, is in their own folder:
 * Tong, E. N. C., Mues, C. & Thomas, L. C. (2012). Mixture cure models in credit
   scoring: if and when borrowers default. *European Journal of Operational
   Research* 218(1), 132–139. https://doi.org/10.1016/j.ejor.2011.10.007
+* Wagner, F. (2011). Markov-chain based credit control for subscribers to
+  mobile communication services [conference presentation]. Credit Scoring and
+  Credit Control conference, Credit Research Centre, University of Edinburgh.
+  https://cer.business-school.ed.ac.uk/wp-content/uploads/sites/55/2017/03/Markov-Chain-Based-Credit-Control-Wagner.pdf
 * Yeh, I-C. & Lien, C-H. (2009). The comparisons of data mining techniques for
   the predictive accuracy of probability of default of credit card clients.
   *Expert Systems with Applications* 36(2), 2473–2480.
