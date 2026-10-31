@@ -12,7 +12,7 @@ continuing the credit default domain of
 Group content is final by **Monday 2 November, 12:00** (48 hours before), so
 each of us can write the individual reflection.
 
-## The task, in one paragraph
+## The task
 
 A binary classification problem (default / no default) in which **each member
 submits one model**, all evaluated on the **same left-out test data**, using a
@@ -36,9 +36,12 @@ Every model is scored on the same split, or the comparison means nothing.
 * `report/01-Data.ipynb` makes the train / validation / test split **once**,
   with a fixed random seed, and saves it to `data/processed/`.
 * Nobody fits, tunes or selects anything on the test set. Tune on validation.
-* `report/08-FinalModels.ipynb` refits each member's final model on train with
-  its tuned settings, then scores its predicted probabilities (not just labels)
-  on the test set in one place, so every model is scored the same way.
+* Each member builds their models in their own report notebook and picks their
+  best candidates there, on validation.
+* `report/08-FinalModels.ipynb` then compares all the top candidates: it refits
+  each on train with its tuned settings and scores its predicted probabilities
+  (not just labels) on the test set in one place, so every model is scored the
+  same way.
 
 ## Reading order
 
@@ -104,11 +107,54 @@ Each member's working, including dead ends, is in their own folder:
 * Yeh, I-C. (2009). *Default of Credit Card Clients* [dataset]. UCI Machine
   Learning Repository. https://doi.org/10.24432/C55S3H
 
-### Papers
+### Lecture notes
 
+* Cho, H. (2026). *Linear and Generalised Linear Models* (MATH30013), lecture
+  notes. University of Bristol.
+* Lawson, D. (2026). *Data Science Toolbox* (MATHM0029), lectures 01.2
+  Introduction to Classification, 02.1.1 Model Selection, 02.2 Cross
+  Validation, 04.2 Clustering and 05.2 Towards Modern Statistical Testing.
+  University of Bristol. https://dsbristol.github.io/dst/
+* Maullin, T. (2026). *MATH30028: Statistical Machine Learning Part I*, lecture
+  notes (last updated 15 Jan 2026). University of Bristol.
+
+### Papers and books
+
+* Allison, P. D. (1982). Discrete-time methods for the analysis of event
+  histories. *Sociological Methodology* 13, 61–98.
+  https://doi.org/10.2307/270718
+* Bellotti, T. & Crook, J. (2009). Credit scoring with macroeconomic variables
+  using survival analysis. *Journal of the Operational Research Society* 60(12),
+  1699–1707. https://doi.org/10.1057/jors.2008.130
+* Bijak, K. & Thomas, L. C. (2012). Does segmentation always improve model
+  performance in credit scoring? *Expert Systems with Applications* 39(3),
+  2433–2442. https://doi.org/10.1016/j.eswa.2011.08.093
+* Keerthi, S. S. & Lin, C.-J. (2003). Asymptotic behaviors of support vector
+  machines with Gaussian kernel. *Neural Computation* 15(7), 1667–1689.
+  https://doi.org/10.1162/089976603321891855
+* Malik, M. & Thomas, L. C. (2012). Transition matrix models of consumer credit
+  ratings. *International Journal of Forecasting* 28(1), 261–272.
+  https://doi.org/10.1016/j.ijforecast.2011.01.007
+* Platt, J. C. (1999). Probabilistic outputs for support vector machines and
+  comparisons to regularized likelihood methods. In A. J. Smola et al. (eds),
+  *Advances in Large Margin Classifiers*, 61–74. MIT Press.
+* Prentice, R. L. & Gloeckler, L. A. (1978). Regression analysis of grouped
+  survival data with application to breast cancer data. *Biometrics* 34(1),
+  57–67. https://doi.org/10.2307/2529588
+* Shumway, T. (2001). Forecasting bankruptcy more accurately: a simple hazard
+  model. *Journal of Business* 74(1), 101–124. https://doi.org/10.1086/209665
+* Stepanova, M. & Thomas, L. (2002). Survival analysis methods for personal loan
+  data. *Operations Research* 50(2), 277–289.
+  https://doi.org/10.1287/opre.50.2.277.426
+* Thomas, L. C., Crook, J. N. & Edelman, D. B. (2017). *Credit Scoring and Its
+  Applications* (2nd ed.). SIAM. https://doi.org/10.1137/1.9781611974560
+* Tong, E. N. C., Mues, C. & Thomas, L. C. (2012). Mixture cure models in credit
+  scoring: if and when borrowers default. *European Journal of Operational
+  Research* 218(1), 132–139. https://doi.org/10.1016/j.ejor.2011.10.007
 * Yeh, I-C. & Lien, C-H. (2009). The comparisons of data mining techniques for
   the predictive accuracy of probability of default of credit card clients.
   *Expert Systems with Applications* 36(2), 2473–2480.
   https://doi.org/10.1016/j.eswa.2007.12.020
 
-Each notebook lists the references for its own methods at the end.
+These are all the references cited across the report. Each notebook also lists
+the references for its own methods at the end.
