@@ -36,9 +36,9 @@ Every model is scored on the same split, or the comparison means nothing.
 * `report/01-Data.ipynb` makes the train / validation / test split **once**,
   with a fixed random seed, and saves it to `data/processed/`.
 * Nobody fits, tunes or selects anything on the test set. Tune on validation.
-* Each model writes its test-set predictions (probabilities, not just labels)
-  to `data/output/predictions-<name>.csv`, so the metric notebook can score
-  them all the same way.
+* `report/08-FinalModels.ipynb` refits each member's final model on train with
+  its tuned settings, then scores its predicted probabilities (not just labels)
+  on the test set in one place, so every model is scored the same way.
 
 ## Reading order
 
