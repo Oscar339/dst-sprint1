@@ -27,7 +27,7 @@ data or simulation.
 * Alex Robinson — Hazard and clustering
 * Louis Mulryan — Markov and forests
 
-Equity: _to be agreed before the work gets underway_ (the brief asks for this).
+Equity: equal, a third each.
 
 ## Ground rules for the shared test set
 
@@ -43,7 +43,6 @@ Every model is scored on the same split, or the comparison means nothing.
 ## Reading order
 
 All report content is in `report/`, numbered `NN-Name.ext` in reading order.
-_To be filled in as the report is written._
 
 1. `01-Data.ipynb` — downloads and cleans the Taiwan data, using the same
    steps as our Sprint 0 project, and makes the shared split: 60% train,
@@ -65,8 +64,10 @@ _To be filled in as the report is written._
 3. `03-SVM.ipynb` (Oscar) — support vector machine, tuning C and $\gamma$,
    compared with the linear model.
 4. `04-RandomForest.ipynb` (Louis) — random forest and gradient boosting.
+   It saves the tuned models to `report/tuned_models.joblib`; nothing else
+   loads that file, as 08 refits the models with the tuned settings.
 5. `05-MarkovChain.ipynb` (Louis) — Markov chain models of the monthly
-   payment status.
+   payment status. The longer working for 04 and 05 is in `Louis/`.
 6. `06-HazardAndClusteringResearch.md` (Alex) — the research behind the hazard
    models and clustering, and what we decided to build.
 7. `07-HazardAndClusteringModels.ipynb` (Alex) — the hazard models, the clustering checks on
@@ -110,5 +111,4 @@ Each member's working, including dead ends, is in their own folder:
   *Expert Systems with Applications* 36(2), 2473–2480.
   https://doi.org/10.1016/j.eswa.2007.12.020
 
-_Add as we go. The unit's example project scored lowest on literature and
-referencing, so cite widely._
+Each notebook lists the references for its own methods at the end.
